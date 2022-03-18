@@ -23,7 +23,11 @@ test('Title shows up when page loads', async () => {
 
 test('Add to Duo button should display the robot', async () => {
     await driver.findElement(By.id("draw")).click()
-    await driver.findElement(By.className("bot-btn")).click()
+    await driver.sleep(1000)
+    await driver.findElement(By.xpath("//button[text() = 'Add to Duo']")).click()
+    await driver.sleep(1000)
+    await driver.findElement(By.xpath("//button[text() = 'Add to Duo']")).click()
+    await driver.sleep(1000)
     const duo = await driver.findElement(By.id('player-duo'))
     const displayed = await duo.isDisplayed()
     expect(displayed).toBe(true)
@@ -32,6 +36,7 @@ test('Add to Duo button should display the robot', async () => {
 
 test('See all bots button should display all bots', async () => {
     await driver.findElement(By.id("see-all")).click()
+    await driver.sleep(1000)
     const allBots = await driver.findElement(By.id("see-bots"))
     const displayed = await allBots.isDisplayed()
     expect(displayed).toBe(true)
